@@ -18,10 +18,10 @@ export async function opened(
 
     const octokit = github.getOctokit(core.getInput('token'))
 
-    if (await mediator.isMaintainer(pullRequest.user)) {
+    /*if (await mediator.isMaintainer(pullRequest.user)) {
         core.info('Author is maintainer')
         return
-    }
+    }*/
 
     const balanceSheet = await points.readBalanceFile(basePath)
     const userBalance =

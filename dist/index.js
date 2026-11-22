@@ -42885,10 +42885,10 @@ async function merged(configuration, mediator, pullRequest, basePath, allowComme
     }
     balance = oldBalance + pointsReceived;
     mediator.newPointDifference(pullRequest.number, user, pointsReceived);
-    if (await mediator.isMaintainer(pullRequest.user)) {
-        mediator.info('Author is maintainer');
-        return;
-    }
+    /*if (await mediator.isMaintainer(pullRequest.user)) {
+        mediator.info('Author is maintainer')
+        return
+    }*/
     if (allowComment != undefined && !allowComment) {
         return; // Nothing else to do
     }
@@ -42915,10 +42915,10 @@ async function opened(configuration, mediator, pullRequest, basePath, allowComme
         return; // Nothing to do currently
     }
     const octokit = getOctokit(getInput('token'));
-    if (await mediator.isMaintainer(pullRequest.user)) {
-        info('Author is maintainer');
-        return;
-    }
+    /*if (await mediator.isMaintainer(pullRequest.user)) {
+        core.info('Author is maintainer')
+        return
+    }*/
     const balanceSheet = await readBalanceFile(basePath);
     const userBalance = (balanceSheet &&
         readBalances(balanceSheet)[pullRequest.user.id]) ||

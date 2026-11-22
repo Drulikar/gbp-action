@@ -42,10 +42,10 @@ export async function merged(
 
     mediator.newPointDifference(pullRequest.number, user, pointsReceived)
 
-    if (await mediator.isMaintainer(pullRequest.user)) {
+    /*if (await mediator.isMaintainer(pullRequest.user)) {
         mediator.info('Author is maintainer')
         return
-    }
+    }*/
 
     if (allowComment != undefined && !allowComment) {
         return // Nothing else to do
